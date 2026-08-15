@@ -1,0 +1,14 @@
+schema: mcpg.dev/plugin/v1
+id: dev.mcpg.cache.memory
+name: In-Memory Cache
+license: Apache-2.0
+description: |
+  A bounded (LRU-evicted) in-process cache with per-entry TTL, backed by moka.
+  No network, no backend — every operation is local CPU. Serves any namespace;
+  supports get/put/delete/clear and atomic per-key incr (counter). Useful as a
+  single-instance response/counter cache or a dev/test stand-in for the Redis
+  cache. Fails closed on bad config.
+class: cache
+runtime: native-cdylib-v1
+protocol_version: "1.0"
+required_capabilities: []
