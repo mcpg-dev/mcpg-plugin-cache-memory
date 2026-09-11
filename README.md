@@ -41,7 +41,7 @@ plugins:
     source:
       path: ./plugins/libmcpg_plugin_cache_memory.so
       # or, platform-agnostic:
-      # oci: ghcr.io/mcpg-dev/source-code/plugins/cache-memory:protocol-1
+      # oci: ghcr.io/mcpg-dev/plugins/cache-memory
     config:
       max_capacity: 50000
 ```
