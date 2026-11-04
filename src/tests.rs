@@ -24,6 +24,12 @@ fn factory_parses_minimal_config() {
 }
 
 #[test]
+fn an_absent_config_block_means_the_defaults() {
+    let _ = build("null");
+    let _ = build("");
+}
+
+#[test]
 #[should_panic(expected = "config parse failed")]
 fn factory_panics_on_unparseable_config() {
     let _ = build("not-json");

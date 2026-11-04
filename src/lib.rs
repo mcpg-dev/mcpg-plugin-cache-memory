@@ -69,7 +69,13 @@ pub enum ConfigError {
 }
 
 impl MemoryCacheConfig {
+    /// An empty, `null` or `{}` block (a `plugins[]` entry without
+    /// `config:`) means the defaults.
     pub fn parse(s: &str) -> Result<Self, ConfigError> {
+        let s = match s.trim() {
+            "" | "null" => "{}",
+            other => other,
+        };
         let cfg: Self = serde_json::from_str(s)?;
         cfg.validate()?;
         Ok(cfg)
